@@ -7,17 +7,12 @@
       register: namespace_result
       changed_when: "'created' in namespace_result.stdout or 'configured' in namespace_result.stdout or 'namespace/monitoring created' in namespace_result.stdout"
 
-- name: Install Helm
+- name: Install Prometheus
   hosts: cluster
   roles:
-    - helm
+    - prometheus
 
 - name: Install Grafana
   hosts: cluster
   roles:
     - grafana
-
-- name: Install Prometheus
-  hosts: cluster
-  roles:
-    - prometheus
