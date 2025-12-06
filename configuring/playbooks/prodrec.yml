@@ -34,7 +34,7 @@
           - secrets.HUGGINGFACE_API_KEY != ''
           - secrets.GROQ_API_KEY != ''
           - secrets.FLASK_SECRET_KEY != ''
-        fail_msg: "Required environment variables GROQ_API_KEY and HUGGINGFACE_API_TOKEN must be set"
+        fail_msg: "Required environment variables must be set: ASTRADB_API_ENDPOINT, ASTRADB_API_KEY, HUGGINGFACE_API_KEY, GROQ_API_KEY, FLASK_SECRET_KEY"
         success_msg: "All required environment variables are set"
 
     - name: Create or update prodrec-secrets
