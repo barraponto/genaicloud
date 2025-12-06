@@ -1,0 +1,14 @@
+---
+- name: Get Minikube IP address
+  shell: minikube ip
+  register: minikube_ip
+  changed_when: false
+
+- name: Apply Prometheus deployment
+  kubernetes.core.k8s:
+    state: present
+    template: templates/prometheus.k8s.yml.j2
+    namespace: monitoring
+  environment:
+    K8S_AUTH_KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    K8S_AUTH_CONTEXT: minikube

@@ -16,3 +16,8 @@
   hosts: cluster
   roles:
     - grafana
+
+- name: Install Prometheus
+  hosts: cluster
+  roles:
+    - prometheus

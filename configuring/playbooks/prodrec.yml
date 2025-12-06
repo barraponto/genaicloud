@@ -54,7 +54,7 @@
   tasks:
     - name: Deploy prodrec-server
       ansible.builtin.command:
-        cmd: minikube kubectl -- apply -f deploy.k8s.yaml
+        cmd: minikube kubectl -- apply -f deploy.k8s.yml
         chdir: ~/prodrec
       register: prodrec_server_result
       changed_when: "'created' in prodrec_server_result.stdout or 'configured' in prodrec_server_result.stdout or 'deployment/prodrec-server created' in prodrec_server_result.stdout"

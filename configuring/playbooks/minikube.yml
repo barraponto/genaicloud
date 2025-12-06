@@ -16,6 +16,7 @@
       - barraponto
     pip_install_packages:
       - name: docker
+      - name: kubernetes
   roles:
     - name: geerlingguy.pip
       become: true
