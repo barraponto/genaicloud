@@ -1,0 +1,60 @@
+- name: Checkout prodrec repo
+  hosts: cluster
+  tasks:
+    - ansible.builtin.git:
+        repo: 'https://github.com/barraponto/prodrec.git'
+        dest: ~/prodrec
+        version: main
+
+- name: Build prodrec docker image for minikube
+  hosts: cluster
+  tasks:
+    - ansible.builtin.shell:
+        cmd: |
+          eval $(minikube -p minikube docker-env) && \
+          docker build . -t prodrec:latest
+        chdir: ~/prodrec
+
+- name: Configure prodrec-secrets
+  hosts: cluster
+  vars:
+    secrets:
+      ASTRADB_API_ENDPOINT: "{{ lookup('env', 'ASTRADB_API_ENDPOINT') | default('') }}"
+      ASTRADB_API_KEY: "{{ lookup('env', 'ASTRADB_API_KEY') | default('') }}"
+      HUGGINGFACE_API_KEY: "{{ lookup('env', 'HUGGINGFACE_API_KEY') | default('') }}"
+      GROQ_API_KEY: "{{ lookup('env', 'GROQ_API_KEY') | default('') }}"
+      FLASK_SECRET_KEY: "{{ lookup('env', 'FLASK_SECRET_KEY') | default('') }}"
+
+  tasks:
+    - name: Check if environment variables are set
+      ansible.builtin.assert:
+        that:
+          - secrets.ASTRADB_API_ENDPOINT != ''
+          - secrets.ASTRADB_API_KEY != ''
+          - secrets.HUGGINGFACE_API_KEY != ''
+          - secrets.GROQ_API_KEY != ''
+          - secrets.FLASK_SECRET_KEY != ''
+        fail_msg: "Required environment variables GROQ_API_KEY and HUGGINGFACE_API_TOKEN must be set"
+        success_msg: "All required environment variables are set"
+
+    - name: Create or update prodrec-secrets
+      ansible.builtin.shell: |
+        minikube kubectl -- create secret generic prodrec-secrets \
+        --from-literal=ASTRADB_API_ENDPOINT="{{ secrets.ASTRADB_API_ENDPOINT }}" \
+        --from-literal=ASTRADB_API_KEY="{{ secrets.ASTRADB_API_KEY }}" \
+        --from-literal=HUGGINGFACE_API_KEY="{{ secrets.HUGGINGFACE_API_KEY }}" \
+        --from-literal=GROQ_API_KEY="{{ secrets.GROQ_API_KEY }}" \
+        --from-literal=FLASK_SECRET_KEY="{{ secrets.FLASK_SECRET_KEY }}" \
+        --dry-run=client -o yaml | minikube kubectl -- apply -f -
+      register: secret_result
+      changed_when: "'created' in secret_result.stdout or 'configured' in secret_result.stdout or 'secret/prodrec-secrets created' in secret_result.stdout"
+
+- name: Deploy prodrec
+  hosts: cluster
+  tasks:
+    - name: Deploy prodrec-server
+      ansible.builtin.command:
+        cmd: minikube kubectl -- apply -f deploy.k8s.yaml
+        chdir: ~/prodrec
+      register: prodrec_server_result
+      changed_when: "'created' in prodrec_server_result.stdout or 'configured' in prodrec_server_result.stdout or 'deployment/prodrec-server created' in prodrec_server_result.stdout"
