@@ -1,0 +1,1 @@
+grafana_cloud_token: "{{ lookup('env', 'GRAFANA_CLOUD_TOKEN') }}"

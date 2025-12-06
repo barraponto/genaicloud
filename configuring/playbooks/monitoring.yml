@@ -1,0 +1,18 @@
+- name: Create monitoring namespace
+  hosts: cluster
+  tasks:
+    - name: Create monitoring namespace
+      ansible.builtin.shell: |
+        minikube kubectl -- create namespace monitoring --dry-run=client -o yaml | minikube kubectl -- apply -f -
+      register: namespace_result
+      changed_when: "'created' in namespace_result.stdout or 'configured' in namespace_result.stdout or 'namespace/monitoring created' in namespace_result.stdout"
+
+- name: Install Helm
+  hosts: cluster
+  roles:
+    - helm
+
+- name: Install Grafana
+  hosts: cluster
+  roles:
+    - grafana

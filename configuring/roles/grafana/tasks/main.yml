@@ -1,0 +1,19 @@
+---
+- name: Add Grafana helm repository
+  kubernetes.core.helm_repository:
+    name: grafana
+    url: https://grafana.github.io/helm-charts
+
+- name: Set Grafana Cloud values
+  ansible.builtin.template:
+    src: ../templates/grafana-cloud.yml.j2
+    dest: ~/grafana-cloud.yml
+
+- name: Install Grafana
+  kubernetes.core.helm:
+    name: grafana-k8s-monitoring
+    chart_ref: grafana/k8s-monitoring
+    namespace: monitoring
+    atomic: true
+    values_files:
+      - "{{ ansible_user_dir }}/grafana-cloud.yml"

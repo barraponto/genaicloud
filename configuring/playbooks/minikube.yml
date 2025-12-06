@@ -1,0 +1,105 @@
+- name: Ensure pip is installed
+  hosts: cluster
+
+
+  tasks:
+    - ansible.builtin.apt:
+        update_cache: yes
+        name: python3-pip
+        state: present
+      become: true
+
+- name: Install docker
+  hosts: cluster
+  vars:
+    docker_users:
+      - barraponto
+    pip_install_packages:
+      - name: docker
+  roles:
+    - name: geerlingguy.pip
+      become: true
+    - name: geerlingguy.docker
+      become: true
+
+- name: Install minikube
+  hosts: cluster
+  tasks:
+    - ansible.builtin.apt:
+        deb: https://storage.googleapis.com/minikube/releases/latest/minikube_latest_amd64.deb
+      become: true
+
+- name: Start Minikube
+  hosts: cluster
+  tasks:
+    - name: Start Minikube
+      ansible.builtin.command: 
+        cmd: minikube start
+        creates: ~/.minikube/machines/minikube/config.json
+
+- name: Install addons
+  hosts: cluster
+  tasks:
+    - name: Install ingress addon
+      ansible.builtin.command:
+        cmd: minikube addons enable {{ item }}
+      with_items:
+        - ingress
+        - ingress-dns
+
+- name: Port-forward Minikube Ingress to localhost:8080
+  hosts: cluster
+  handlers:
+    - name: reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+      become: true
+
+    - name: restart k8s-port-forward
+      ansible.builtin.systemd:
+        name: k8s-port-forward.service
+        state: restarted
+      become: true
+  tasks:
+  - name: Copy kubectl port-forward service file
+    ansible.builtin.copy:
+      dest: "/etc/systemd/system/k8s-port-forward.service"
+      content: |
+        [Unit]
+        Description=Port-forward Minikube Ingress 8080
+        After=network.target
+        
+        [Service]
+        User=barraponto 
+        Group=barraponto
+        WorkingDirectory={{ ansible_env.HOME }}
+        ExecStart=/usr/bin/minikube kubectl -- port-forward --address 0.0.0.0 -n ingress-nginx svc/ingress-nginx-controller 80:80
+        ExecStop=/usr/bin/minikube kubectl -- port-forward --address 0.0.0.0 -n ingress-nginx svc/ingress-nginx-controller 80:80 --stop
+        Restart=always
+        RestartSec=5
+        AmbientCapabilities=CAP_NET_BIND_SERVICE
+        CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+        
+        [Install]
+        WantedBy=default.target
+      mode: '0644'
+    become: true
+    notify:
+      - reload systemd
+      - restart k8s-port-forward
+
+  - name: Enable and start kubectl port-forward service
+    ansible.builtin.systemd:
+      name: k8s-port-forward.service
+      enabled: true
+      state: started
+    become: true
+
+  - name: Verify service status
+    ansible.builtin.systemd:
+      name: k8s-port-forward.service
+    register: service_status
+
+  - name: Display service status
+    ansible.builtin.debug:
+      msg: "Port-forward service status: {{ service_status.status.ActiveState }} at localhost:8080"

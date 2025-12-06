@@ -1,0 +1,22 @@
+---
+- name: Add Helm repository.
+  become: true
+  ansible.builtin.deb822_repository:
+    name: helm-stable-debian
+    types: deb
+    uris: "https://packages.buildkite.com/helm-linux/helm-debian/any/"
+    suites: any
+    components: main
+    signed_by: "https://packages.buildkite.com/helm-linux/helm-debian/gpgkey"
+    state: present
+
+- name: Ensure handlers are notified immediately to update the apt cache.
+  become: true
+  ansible.builtin.meta: flush_handlers
+
+- name: Install Helm package.
+  become: true
+  ansible.builtin.apt:
+    name: helm
+    state: present
+    update_cache: true
