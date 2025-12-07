@@ -21,3 +21,8 @@
   hosts: cluster
   roles:
     - filebeat
+
+- name: Install Logstash
+  hosts: cluster
+  roles:
+    - logstash
