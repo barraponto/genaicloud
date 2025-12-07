@@ -1,6 +1,6 @@
 ---
 - name: Get Minikube IP address
-  shell: minikube ip
+  ansible.builtin.command: minikube ip
   register: minikube_ip
   changed_when: false
 
@@ -10,5 +10,5 @@
     template: templates/prometheus.k8s.yml.j2
     namespace: monitoring
   environment:
-    K8S_AUTH_KUBECONFIG: "{{ ansible_env.HOME }}/.kube/config"
+    K8S_AUTH_KUBECONFIG: "{{ ansible_facts.user_dir }}/.kube/config"
     K8S_AUTH_CONTEXT: minikube

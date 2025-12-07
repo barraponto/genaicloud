@@ -16,3 +16,8 @@
   hosts: cluster
   roles:
     - grafana
+
+- name: Install Filebeat
+  hosts: cluster
+  roles:
+    - filebeat

@@ -1,8 +1,8 @@
 ---
-- name: Apply Grafana deployment
+- name: Apply Filebeat deployment
   kubernetes.core.k8s:
     state: present
-    template: templates/grafana.k8s.yml.j2
+    template: templates/filebeat.k8s.yml.j2
     namespace: monitoring
   environment:
     K8S_AUTH_KUBECONFIG: "{{ ansible_facts.user_dir }}/.kube/config"
