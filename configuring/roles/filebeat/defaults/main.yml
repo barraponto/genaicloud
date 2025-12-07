@@ -1,0 +1,2 @@
+logstash_beats_port: 5044
+logstash_api_port: 9600

@@ -11,4 +11,4 @@ processors:
     - add_host_metadata:
 
 output.logstash:
-    hosts: ["logstash.logging.svc.cluster.local:5044"]
+    hosts: ["logstash.monitoring.svc.cluster.local:{{ logstash_beats_port }}"]

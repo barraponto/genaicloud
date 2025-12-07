@@ -1,0 +1,15 @@
+input {
+    beats {
+        port => {{ logstash_beats_port }}
+    }
+}
+
+filter {
+}
+
+output {
+    elasticsearch {
+        hosts => ["http://elasticsearch.monitoring.svc.cluster.local:{{ elasticsearch_port }}"]
+        index => "filebeat-%{+YYYY.MM.dd}"
+    }
+}
