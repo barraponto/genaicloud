@@ -1,0 +1,9 @@
+---
+- name: Apply Kibana deployment
+  kubernetes.core.k8s:
+    state: present
+    template: templates/kibana.k8s.yml.j2
+    namespace: monitoring
+  environment:
+    K8S_AUTH_KUBECONFIG: "{{ ansible_facts.user_dir }}/.kube/config"
+    K8S_AUTH_CONTEXT: minikube

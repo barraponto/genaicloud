@@ -26,3 +26,13 @@
   hosts: cluster
   roles:
     - logstash
+
+- name: Install Elasticsearch
+  hosts: cluster
+  roles:
+    - elasticsearch
+
+- name: Install Kibana
+  hosts: cluster
+  roles:
+    - kibana

@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kibana
+  namespace: monitoring
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kibana
+  template:
+    metadata:
+      labels:
+        app: kibana
+    spec:
+      containers:
+        - name: kibana
+          image: docker.elastic.co/kibana/kibana:9.2.2-amd64
+          env:
+            - name: ELASTICSEARCH_HOSTS
+              value: http://elasticsearch-service.monitoring.svc.cluster.local:{{ elasticsearch_port | int }}
+          ports:
+            - containerPort: {{ kibana_port | int }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kibana-service
+  namespace: monitoring
+spec:
+  type: NodePort
+  selector:
+    app: kibana
+  ports:
+    - port: {{ kibana_port | int }}
+      targetPort: {{ kibana_port | int }}    
+      nodePort: 32104
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kibana-ingress
+  labels:
+    app.kubernetes.io/name: kibana
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: kibana.ludologico.com.br
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: kibana-service
+            port:
+              number: {{ kibana_port | int }}

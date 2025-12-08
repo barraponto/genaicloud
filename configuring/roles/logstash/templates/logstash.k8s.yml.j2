@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
 data:
   logstash.conf: |
-    "{{ lookup('template', 'templates/logstash.conf.j2') | trim | indent(4) }}"
+    {{ lookup('template', 'templates/logstash.conf.j2') | trim | indent(4) }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: logstash
-          image: docker.elastic.co/logstash/logstash-oss
+          image: docker.elastic.co/logstash/logstash-oss:9.2.2-amd64
           ports:
             - containerPort: {{ logstash_beats_port | int }}
             - containerPort: {{ logstash_api_port | int }}
@@ -43,7 +43,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: logstash
+  name: logstash-service
   namespace: monitoring
 spec:
   selector:
@@ -52,3 +52,5 @@ spec:
     - protocol: TCP
       port: {{ logstash_beats_port | int }}
       targetPort: {{ logstash_beats_port | int }}
+      nodePort: 32102
+  type: NodePort

@@ -8,8 +8,11 @@ filter {
 }
 
 output {
+    stdout {
+        codec => rubydebug
+    }
     elasticsearch {
-        hosts => ["http://elasticsearch.monitoring.svc.cluster.local:{{ elasticsearch_port }}"]
-        index => "filebeat-%{+YYYY.MM.dd}"
+        hosts => ["http://elasticsearch-service.monitoring.svc.cluster.local:{{ elasticsearch_port }}"]
+        index => "%{[@metadata][beat]}-%{[@metadata][version]}-%{+YYYY.MM.dd}"
     }
 }
