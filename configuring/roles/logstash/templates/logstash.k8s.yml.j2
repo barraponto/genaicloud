@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
 data:
   logstash.conf: |
-    {{ lookup('template', './logstash.conf.j2') }}
+    "{{ lookup('template', 'templates/logstash.conf.j2') | trim | indent(4) }}"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -26,8 +26,8 @@ spec:
         - name: logstash
           image: docker.elastic.co/logstash/logstash-oss
           ports:
-            - containerPort: "{{ logstash_beats_port }}"
-            - containerPort: "{{ logstash_api_port }}"
+            - containerPort: {{ logstash_beats_port | int }}
+            - containerPort: {{ logstash_api_port | int }}
           volumeMounts:
             - name: config-volume
               mountPath: /usr/share/logstash/pipeline/logstash.conf
@@ -50,8 +50,5 @@ spec:
     app: logstash
   ports:
     - protocol: TCP
-      port: "{{ logstash_beats_port }}"
-      targetPort: "{{ logstash_beats_port }}"
-    - protocol: TCP
-      port: "{{ logstash_api_port }}"
-      targetPort: "{{ logstash_api_port }}"
+      port: {{ logstash_beats_port | int }}
+      targetPort: {{ logstash_beats_port | int }}

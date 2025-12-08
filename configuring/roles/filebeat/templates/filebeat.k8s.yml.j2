@@ -8,7 +8,7 @@ metadata:
     k8s-app: filebeat
 data:
   filebeat.yml: |
-    {{ lookup('template', './filebeat-config.yml.j2') }}
+    {{ lookup('template', './filebeat-config.yml.j2') | trim | indent(4) }}
 ---
 apiVersion: apps/v1
 kind: DaemonSet

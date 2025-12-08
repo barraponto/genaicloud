@@ -5,18 +5,7 @@ metadata:
   namespace: monitoring
 data:
   prometheus.yml: |
-    global:
-      scrape_interval: 15s
-
-    scrape_configs:
-      - job_name: 'prometheus'
-        static_configs:
-          - targets: ['{{ minikube_ip.stdout }}:32100']
-
-      - job_name: 'prodrec'
-        metrics_path: /metrics
-        static_configs:
-          - targets: ['{{ minikube_ip.stdout }}:32001']
+    {{ lookup('template', 'templates/prometheus.yml.j2') | trim | indent(4) }}
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,7 +28,7 @@ spec:
           args:
             - "--config.file=/etc/prometheus/prometheus.yml"
           ports:
-            - containerPort: 9090
+            - containerPort: {{ prometheus_port | int }}
           volumeMounts:
             - name: config-volume
               mountPath: /etc/prometheus
@@ -58,8 +47,8 @@ spec:
     app: prometheus
   ports:
     - protocol: TCP
-      port: 9090
-      targetPort: 9090
+      port: {{ prometheus_port | int }}
+      targetPort: {{ prometheus_port | int }}
       nodePort: 32100
   type: NodePort
 ---
@@ -81,4 +70,4 @@ spec:
           service:
             name: prometheus-service
             port:
-              number: 9090
+              number: {{ prometheus_port | int }}

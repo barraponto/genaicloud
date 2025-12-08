@@ -17,7 +17,7 @@ spec:
         - name: grafana
           image: grafana/grafana
           ports:
-            - containerPort: 3000
+            - containerPort: {{ grafana_port | int }}
 ---
 apiVersion: v1
 kind: Service
@@ -29,8 +29,8 @@ spec:
     app: grafana
   ports:
     - protocol: TCP
-      port: 3000
-      targetPort: 3000
+      port: {{ grafana_port | int }}
+      targetPort: {{ grafana_port | int }}
       nodePort: 32101
   type: NodePort
 ---
@@ -52,4 +52,4 @@ spec:
           service:
             name: grafana-service
             port:
-              number: 3000
+              number: {{ grafana_port | int }}
