@@ -30,10 +30,10 @@ spec:
       terminationGracePeriodSeconds: 30
       hostNetwork: true
       dnsPolicy: ClusterFirstWithHostNet
+      hostPID: true
       containers:
       - name: filebeat
         image: docker.elastic.co/beats/filebeat-oss:9.2.2-amd64
-        args: [ "-c", "/etc/filebeat.yml", "-e" ]
         env:
         - name: NODE_NAME
           valueFrom:
@@ -49,7 +49,7 @@ spec:
             memory: 100Mi
         volumeMounts:
         - name: config
-          mountPath: /etc/filebeat.yml
+          mountPath: /usr/share/filebeat/filebeat.yml
           readOnly: true
           subPath: filebeat.yml # key from configmap
         - name: varcontainers

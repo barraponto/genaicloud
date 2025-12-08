@@ -1,6 +1,9 @@
 filebeat.inputs:
   - type: filestream
     id: minikube-containers
+    prospector.scanner.symlinks: true
+    parsers:
+      - container: ~
     paths:
       - /var/log/containers/*.log
     processors:
