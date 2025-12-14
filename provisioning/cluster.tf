@@ -35,6 +35,17 @@ resource "google_compute_firewall" "allow_http_8080" {
   target_tags   = ["ingress-http"]
 }
 
+resource "google_compute_firewall" "allow_http_8000" {
+  name    = "allow-http-8000"
+  network = "default"  # Or your VPC name
+  allow {
+    protocol = "tcp"
+    ports    = ["8000"]
+  }
+  source_ranges = ["0.0.0.0/0"]
+  target_tags   = ["argocd-http"]
+}
+
 resource "google_compute_address" "static_ip" {
   name         = "cluster-ip"
   region       = "us-central1"
@@ -105,7 +116,7 @@ resource "google_compute_instance" "genai-cluster-1" {
     enable_vtpm                 = true
   }
 
-  tags = ["http-server", "https-server", "lb-health-check", "ingress-http"]
+  tags = ["http-server", "https-server", "lb-health-check", "ingress-http", "argocd-http"]
   zone = "us-central1-c"
 }
 
