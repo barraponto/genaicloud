@@ -35,6 +35,11 @@ resource "google_compute_firewall" "allow_http_8080" {
   target_tags   = ["ingress-http"]
 }
 
+resource "google_compute_address" "static_ip" {
+  name         = "cluster-ip"
+  region       = "us-central1"
+  address_type = "EXTERNAL"
+}
 
 resource "google_compute_instance" "genai-cluster-1" {
   boot_disk {
@@ -43,7 +48,7 @@ resource "google_compute_instance" "genai-cluster-1" {
 
     initialize_params {
       image = "ubuntu-os-cloud/ubuntu-2404-lts-amd64"
-      size  = 100
+      size  = 200
       type  = "pd-balanced"
     }
 
@@ -64,6 +69,7 @@ resource "google_compute_instance" "genai-cluster-1" {
   network_interface {
     access_config {
       network_tier = "PREMIUM"
+      nat_ip       = google_compute_address.static_ip.address
     }
 
     queue_count = 0
