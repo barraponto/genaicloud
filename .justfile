@@ -12,6 +12,7 @@ configure:
     uv run ansible-playbook -i inventory playbooks/minikube.yml
     uv run --env-file ../.env ansible-playbook -i inventory playbooks/monitoring.yml
     uv run ansible-playbook -i inventory playbooks/ci.yml
+    uv run ansible-playbook -i inventory playbooks/cd.yml
 
 [working-directory: 'configuring']
 deploy playbook:

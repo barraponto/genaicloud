@@ -1,0 +1,57 @@
+- name: Argo CD
+  hosts: cluster
+  tasks:
+    - name: Create Argo CD namespace
+      ansible.builtin.shell:
+        cmd: minikube kubectl -- create namespace argocd --dry-run=client -o yaml | minikube kubectl -- apply -f -
+    - name: Install Argo CD
+      ansible.builtin.command:
+        cmd: minikube kubectl -- -n argocd apply -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    - name: Wait for Argo CD to be ready
+      ansible.builtin.command:
+        cmd: minikube kubectl -- wait --for=condition=ready pod -l app.kubernetes.io/name=argocd-server -n argocd
+
+- name: Port-forward Argo CD 8000
+  hosts: cluster
+  handlers:
+    - name: reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+      become: true
+
+    - name: restart argocd-port-forward
+      ansible.builtin.systemd:
+        name: argocd-port-forward.service
+        state: restarted
+      become: true
+  tasks:
+    - name: Copy argocd port-forward service file
+      ansible.builtin.copy:
+        dest: "/etc/systemd/system/argocd-port-forward.service"
+        content: |
+          [Unit]
+          Description=Port-forward Argo CD 8000
+          After=network.target
+
+          [Service]
+          User=barraponto 
+          Group=barraponto
+          WorkingDirectory={{ ansible_env.HOME }}
+          ExecStart=/usr/bin/minikube kubectl -- port-forward --address 0.0.0.0 -n argocd svc/argocd-server 8000:443
+          ExecStop=/usr/bin/minikube kubectl -- port-forward --address 0.0.0.0 -n argocd svc/argocd-server 8000:443 --stop
+          Restart=always
+          RestartSec=5
+          AmbientCapabilities=CAP_NET_BIND_SERVICE
+          CapabilityBoundingSet=CAP_NET_BIND_SERVICE
+
+          [Install]
+          WantedBy=default.target
+        mode: "0644"
+      become: true
+      notify:
+        - reload systemd
+        - restart argocd-port-forward
+    # - name: Get Argo CD admin password
+    #   ansible.builtin.command:
+    #     cmd: kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+    #   register: argocd_password

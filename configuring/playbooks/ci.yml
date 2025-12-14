@@ -14,11 +14,25 @@
     docker_group_id: 988
     host_group_id: 1002
     jenkins_home: /home/barraponto/jenkins
+    argocd_version: v3.2.1
+    kubectl_version: v1.34.3
   tasks:
     - name: Create Jenkins image directory
       ansible.builtin.file:
         path: /tmp/jenkins-image
         state: directory
+        mode: 0755
+
+    - name: Download Kubectl
+      ansible.builtin.get_url:
+        url: https://dl.k8s.io/release/{{ kubectl_version }}/bin/linux/amd64/kubectl
+        dest: /tmp/jenkins-image/kubectl-linux-amd64
+        mode: 0755
+
+    - name: Download Argo CD CLI
+      ansible.builtin.get_url:
+        url: https://github.com/argoproj/argo-cd/releases/download/{{ argocd_version }}/argocd-linux-amd64
+        dest: /tmp/jenkins-image/argocd-linux-amd64
         mode: 0755
 
     - name: Create Jenkins home directory
@@ -46,6 +60,12 @@
           # Install docker-buildx
           RUN apt-get update && apt-get install -y docker-buildx
 
+          # Install kubectl
+          COPY ./kubectl-linux-amd64 /usr/local/bin/kubectl
+
+          # Install Argo CD CLI
+          COPY ./argocd-linux-amd64 /usr/local/bin/argocd
+
           # Drop back to the jenkins user
           USER jenkins
 
@@ -53,6 +73,7 @@
       community.docker.docker_image:
         name: jenkins-with-docker-group:latest
         source: build
+        force_source: true
         build:
           path: /tmp/jenkins-image
 
