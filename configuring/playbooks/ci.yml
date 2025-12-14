@@ -1,0 +1,56 @@
+- name: Jenkins CI
+  hosts: cluster
+  handlers:
+    - name: reload systemd
+      ansible.builtin.systemd:
+        daemon_reload: true
+      become: true
+  tasks:
+    - name: Run Jenkins
+      ansible.builtin.copy:
+        dest: "/etc/systemd/system/jenkins.service"
+        content: |
+          [Unit]
+          Description=Jenkins
+          Requires=docker.service
+          After=docker.service
+
+          [Service]
+          User=barraponto 
+          Group=barraponto
+          WorkingDirectory={{ ansible_env.HOME }}
+
+          Restart=always
+          RestartSec=5
+          TimeoutStartSec=0
+
+          # Clean up any previous container with same name
+          ExecStartPre=-/usr/bin/docker rm -f jenkins
+
+          # Start the container
+          ExecStart=/usr/bin/docker run \
+            --name jenkins \
+            -p 8080:8080 \
+            -p 50000:50000 \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v /usr/bin/docker:/usr/bin/docker \
+            --network minikube \
+            jenkins/jenkins:lts
+
+          # Stop the container
+          ExecStop=/usr/bin/docker stop jenkins
+
+          [Install]
+          WantedBy=multi-user.target
+
+        mode: "0644"
+      become: true
+      notify:
+        - reload systemd
+
+    - name: Enable and start jenkins service
+      ansible.builtin.systemd:
+        name: jenkins.service
+        enabled: true
+        state: started
+      become: true

@@ -20,6 +20,7 @@ python313.pkg-path = "python313"
 opentofu.pkg-path = "opentofu"
 just.pkg-path = "just"
 kubeval.pkg-path = "kubeval"
+prometheus.pkg-path = "prometheus"
 # gum.pkg-path = "gum"
 # gum.version = "^0.14.5"
 

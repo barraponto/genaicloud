@@ -12,6 +12,9 @@
       "opentofu": {
         "pkg-path": "opentofu"
       },
+      "prometheus": {
+        "pkg-path": "prometheus"
+      },
       "python313": {
         "pkg-path": "python313"
       },
@@ -31,13 +34,13 @@
       "description": "Handy way to save and run project-specific commands",
       "install_id": "just",
       "license": "CC0-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "just-1.43.1",
       "pname": "just",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T02:53:55.966158Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T02:54:58.699398Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -64,13 +67,13 @@
       "description": "Handy way to save and run project-specific commands",
       "install_id": "just",
       "license": "CC0-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "just-1.43.1",
       "pname": "just",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:02:40.403894Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:04:15.460660Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -97,13 +100,13 @@
       "description": "Handy way to save and run project-specific commands",
       "install_id": "just",
       "license": "CC0-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "just-1.43.1",
       "pname": "just",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:11:58.320457Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:14:13.092487Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -130,13 +133,13 @@
       "description": "Handy way to save and run project-specific commands",
       "install_id": "just",
       "license": "CC0-1.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "just-1.43.1",
       "pname": "just",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:20:28.788468Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:23:39.278226Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -163,13 +166,13 @@
       "description": "Validate your Kubernetes configuration files",
       "install_id": "kubeval",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "kubeval-0.16.1",
       "pname": "kubeval",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T02:53:56.600986Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T02:54:59.309647Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -193,13 +196,13 @@
       "description": "Validate your Kubernetes configuration files",
       "install_id": "kubeval",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "kubeval-0.16.1",
       "pname": "kubeval",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:02:42.039010Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:04:17.146850Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -223,13 +226,13 @@
       "description": "Validate your Kubernetes configuration files",
       "install_id": "kubeval",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "kubeval-0.16.1",
       "pname": "kubeval",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:11:58.933773Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:14:13.728416Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -253,13 +256,13 @@
       "description": "Validate your Kubernetes configuration files",
       "install_id": "kubeval",
       "license": "Apache-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "kubeval-0.16.1",
       "pname": "kubeval",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:20:30.416806Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:23:40.989044Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -283,13 +286,13 @@
       "description": "Tool for building, changing, and versioning infrastructure",
       "install_id": "opentofu",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "opentofu-1.10.7",
       "pname": "opentofu",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T02:54:06.444808Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T02:55:08.574126Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -313,13 +316,13 @@
       "description": "Tool for building, changing, and versioning infrastructure",
       "install_id": "opentofu",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "opentofu-1.10.7",
       "pname": "opentofu",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:03:01.208603Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:04:36.249690Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -343,13 +346,13 @@
       "description": "Tool for building, changing, and versioning infrastructure",
       "install_id": "opentofu",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "opentofu-1.10.7",
       "pname": "opentofu",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:12:08.045173Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:14:23.662249Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -373,13 +376,13 @@
       "description": "Tool for building, changing, and versioning infrastructure",
       "install_id": "opentofu",
       "license": "MPL-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "opentofu-1.10.7",
       "pname": "opentofu",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:20:50.330254Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:24:02.202992Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -397,19 +400,147 @@
       "priority": 5
     },
     {
+      "attr_path": "prometheus",
+      "broken": false,
+      "derivation": "/nix/store/y9x36imvh7pbnv1k2q8cyww4zkfwc7z8-prometheus-3.8.0.drv",
+      "description": "Service monitoring system and time series database",
+      "install_id": "prometheus",
+      "license": "Apache-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "prometheus-3.8.0",
+      "pname": "prometheus",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T02:55:20.856073Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.8.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "cli": "/nix/store/4k8d9z3gcqlkvw05pzp7xl16mhn8va5r-prometheus-3.8.0-cli",
+        "doc": "/nix/store/bwm7a0s2gqfh6zpysxlzmjhk94lpvbx4-prometheus-3.8.0-doc",
+        "out": "/nix/store/8n3d8kdav85d6jq0lnwabh2i2fvyc96k-prometheus-3.8.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "prometheus",
+      "broken": false,
+      "derivation": "/nix/store/xx9w7lry2r6h2pwd6cffaspamak9b3f6-prometheus-3.8.0.drv",
+      "description": "Service monitoring system and time series database",
+      "install_id": "prometheus",
+      "license": "Apache-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "prometheus-3.8.0",
+      "pname": "prometheus",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:04:54.429414Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.8.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "cli": "/nix/store/1kq5275sphin262f5ay9g2dgpiqjwlcd-prometheus-3.8.0-cli",
+        "doc": "/nix/store/h4ig2ml2gqhrlhz3fmzlbfba2nyj6cby-prometheus-3.8.0-doc",
+        "out": "/nix/store/z2a6s76r04s034h3ry4r2vg7126ayc7m-prometheus-3.8.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "prometheus",
+      "broken": false,
+      "derivation": "/nix/store/m5nhnjavk7cixcxkkiyxjxm0164882mw-prometheus-3.8.0.drv",
+      "description": "Service monitoring system and time series database",
+      "install_id": "prometheus",
+      "license": "Apache-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "prometheus-3.8.0",
+      "pname": "prometheus",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:14:36.917667Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.8.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "cli": "/nix/store/4kq5pgw2a5hli0viikmvzghghlln3qmj-prometheus-3.8.0-cli",
+        "doc": "/nix/store/pgwyz3biadccrhrzjl7z5n4incmynhyg-prometheus-3.8.0-doc",
+        "out": "/nix/store/nkg4ryp452s170jzffga4k8h9f7bj2lw-prometheus-3.8.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "prometheus",
+      "broken": false,
+      "derivation": "/nix/store/l09ldf6fpia4aji5lq6p58w426kgwq9c-prometheus-3.8.0.drv",
+      "description": "Service monitoring system and time series database",
+      "install_id": "prometheus",
+      "license": "Apache-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "prometheus-3.8.0",
+      "pname": "prometheus",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:24:21.306988Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.8.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "cli": "/nix/store/62hgk4sv20i9jn138wk6v0p81b8gyymj-prometheus-3.8.0-cli",
+        "doc": "/nix/store/r36klnc7gvmzkfggj54pbw4szpl7nk2q-prometheus-3.8.0-doc",
+        "out": "/nix/store/3l00j0mdy8cq4j83001dfhn67py4yi2n-prometheus-3.8.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
       "attr_path": "python313",
       "broken": false,
       "derivation": "/nix/store/6njqakbkci2h765gyj0q9rcmkfy38hya-python3-3.13.9.drv",
       "description": "High-level dynamically-typed programming language",
       "install_id": "python313",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "python3-3.13.9",
       "pname": "python313",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T02:54:39.653515Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T02:55:39.947245Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -433,13 +564,13 @@
       "description": "High-level dynamically-typed programming language",
       "install_id": "python313",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "python3-3.13.9",
       "pname": "python313",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:03:45.310948Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:05:22.564465Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -464,13 +595,13 @@
       "description": "High-level dynamically-typed programming language",
       "install_id": "python313",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "python3-3.13.9",
       "pname": "python313",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:12:39.070288Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:14:57.822070Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -494,13 +625,13 @@
       "description": "High-level dynamically-typed programming language",
       "install_id": "python313",
       "license": "Python-2.0",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
       "name": "python3-3.13.9",
       "pname": "python313",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:21:34.171279Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:24:49.140224Z",
       "stabilities": [
         "staging",
         "unstable"
@@ -521,28 +652,28 @@
     {
       "attr_path": "uv",
       "broken": false,
-      "derivation": "/nix/store/5xdn711qjgkkady64ywrxq6mhbi9nz9h-uv-0.9.14.drv",
+      "derivation": "/nix/store/cypg31kavj8d2f05l074bpckavpylcwc-uv-0.9.15.drv",
       "description": "Extremely fast Python package installer and resolver, written in Rust",
       "install_id": "uv",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
-      "name": "uv-0.9.14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "uv-0.9.15",
       "pname": "uv",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T02:56:01.692648Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T02:56:59.081062Z",
       "stabilities": [
         "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.9.14",
+      "version": "0.9.15",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/zbg4ksfcdcmqbw8x0f0xlla16g2lhxgy-uv-0.9.14"
+        "out": "/nix/store/ygjvbgmlcwcsn49h6iqmv1zb63945fil-uv-0.9.15"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -551,28 +682,28 @@
     {
       "attr_path": "uv",
       "broken": false,
-      "derivation": "/nix/store/8z6dv3xfq2mc9hw87w37sw2hs1jlchyg-uv-0.9.14.drv",
+      "derivation": "/nix/store/9gprkj36z4dh6rw1yavf35grs211acg8-uv-0.9.15.drv",
       "description": "Extremely fast Python package installer and resolver, written in Rust",
       "install_id": "uv",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
-      "name": "uv-0.9.14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "uv-0.9.15",
       "pname": "uv",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:05:28.971221Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:07:11.445415Z",
       "stabilities": [
         "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.9.14",
+      "version": "0.9.15",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/2k74mawzpjihb1jpyxlmbhaz7wflbhyb-uv-0.9.14"
+        "out": "/nix/store/ixkl2madqd89qy5yhhr963pq5jdlffwx-uv-0.9.15"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -581,28 +712,28 @@
     {
       "attr_path": "uv",
       "broken": false,
-      "derivation": "/nix/store/v9j7x0id9jkqg88fydksrddjy2pxcgib-uv-0.9.14.drv",
+      "derivation": "/nix/store/8qjrnz1y5al2mr9xjvlrq1dj9zxb48qj-uv-0.9.15.drv",
       "description": "Extremely fast Python package installer and resolver, written in Rust",
       "install_id": "uv",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
-      "name": "uv-0.9.14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "uv-0.9.15",
       "pname": "uv",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:13:57.183996Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:16:24.961386Z",
       "stabilities": [
         "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.9.14",
+      "version": "0.9.15",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/msq3vg45z01w0bl7q0k57yyczjh10hv8-uv-0.9.14"
+        "out": "/nix/store/94x53a87w6dhzpbhqbyylwpax4cy6kp8-uv-0.9.15"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -611,28 +742,28 @@
     {
       "attr_path": "uv",
       "broken": false,
-      "derivation": "/nix/store/16j8ajlaksqd7pv1pnp12v22bb79wsl8-uv-0.9.14.drv",
+      "derivation": "/nix/store/k3c1wqg5bmymhscwcxrfl42gd7i9vki3-uv-0.9.15.drv",
       "description": "Extremely fast Python package installer and resolver, written in Rust",
       "install_id": "uv",
       "license": "[ Apache-2.0, MIT ]",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=418468ac9527e799809c900eda37cbff999199b6",
-      "name": "uv-0.9.14",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "name": "uv-0.9.15",
       "pname": "uv",
-      "rev": "418468ac9527e799809c900eda37cbff999199b6",
-      "rev_count": 905402,
-      "rev_date": "2025-12-02T09:27:49Z",
-      "scrape_date": "2025-12-04T03:23:20.097970Z",
+      "rev": "addf7cf5f383a3101ecfba091b98d0a1263dc9b8",
+      "rev_count": 908783,
+      "rev_date": "2025-12-08T09:27:56Z",
+      "scrape_date": "2025-12-10T03:26:41.582574Z",
       "stabilities": [
         "staging",
         "unstable"
       ],
       "unfree": false,
-      "version": "0.9.14",
+      "version": "0.9.15",
       "outputs_to_install": [
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/483pf97g9l0l3rh0988ghffcppm4001a-uv-0.9.14"
+        "out": "/nix/store/qpjjd520lh2pjif58wmlrjd4a5mmm55w-uv-0.9.15"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
