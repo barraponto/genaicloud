@@ -5,7 +5,57 @@
       ansible.builtin.systemd:
         daemon_reload: true
       become: true
+    - name: restart jenkins
+      ansible.builtin.systemd:
+        name: jenkins.service
+        state: restarted
+      become: true
+  vars:
+    docker_group_id: 988
+    host_group_id: 1002
+    jenkins_home: /home/barraponto/jenkins
   tasks:
+    - name: Create Jenkins image directory
+      ansible.builtin.file:
+        path: /tmp/jenkins-image
+        state: directory
+        mode: 0755
+
+    - name: Create Jenkins home directory
+      ansible.builtin.file:
+        path: "{{ jenkins_home }}"
+        state: directory
+        mode: 0775
+        group: "{{ host_group_id }}"
+
+    - name: Create Jenkins image with docker group
+      ansible.builtin.copy:
+        dest: /tmp/jenkins-image/Dockerfile
+        content: |
+          FROM jenkins/jenkins:lts
+          USER root
+
+          # Create a group with GID matching host docker.sock GID and add jenkins to it
+          RUN groupadd -g {{ docker_group_id }} dockerhost \
+              && usermod -aG dockerhost jenkins
+
+          # Create a group with GID matching host group ID and add jenkins to it
+          RUN groupadd -g {{ host_group_id }} jenkinshost \
+              && usermod -aG jenkinshost jenkins
+
+          # Install docker-buildx
+          RUN apt-get update && apt-get install -y docker-buildx
+
+          # Drop back to the jenkins user
+          USER jenkins
+
+    - name: Build Jenkins image
+      community.docker.docker_image:
+        name: jenkins-with-docker-group:latest
+        source: build
+        build:
+          path: /tmp/jenkins-image
+
     - name: Run Jenkins
       ansible.builtin.copy:
         dest: "/etc/systemd/system/jenkins.service"
@@ -34,8 +84,11 @@
             -p 50000:50000 \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v /usr/bin/docker:/usr/bin/docker \
+            -v {{ jenkins_home }}:/var/jenkins_home \
+            --group-add {{ docker_group_id }} \
+            --group-add {{ host_group_id }} \
             --network minikube \
-            jenkins/jenkins:lts
+            jenkins-with-docker-group:latest
 
           # Stop the container
           ExecStop=/usr/bin/docker stop jenkins
@@ -47,6 +100,7 @@
       become: true
       notify:
         - reload systemd
+        - restart jenkins
 
     - name: Enable and start jenkins service
       ansible.builtin.systemd:

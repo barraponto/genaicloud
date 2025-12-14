@@ -34,7 +34,7 @@
   vars:
     minikube_cpus: 3
     minikube_memory: 12288mb
-    minikube_disk_size: 30g
+    minikube_disk_size: 128g
     minikube_data_path: /home/barraponto/data
   tasks:
     - name: Start Minikube

@@ -4,5 +4,5 @@ cluster:
     ansible_ssh_private_key_file: ~/.ssh/google_compute_engine
   hosts:
     server:
-      ansible_host: 136.119.187.1
+      ansible_host: 34.45.64.144
       ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
